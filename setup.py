@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import os
 
 from setuptools import setup
@@ -5,8 +6,9 @@ from setuptools import setup
 
 setup(
     name='fakenewsredis',
-    version='0.10.0',
-    description="Fake implementation of redis API for testing purposes.",
+    version='0.10.1',
+    description="Fake implementation of redis API for testing purposes "
+                "(DEPRECATED: use fakeredis).",
     long_description=open(os.path.join(os.path.dirname(__file__),
                                        'README.rst')).read(),
     license='BSD',
@@ -17,7 +19,7 @@ setup(
     maintainer_email='bmerry@ska.ac.za',
     py_modules=['fakenewsredis'],
     classifiers=[
-        'Development Status :: 5 - Production/Stable',
+        'Development Status :: 7 - Inactive',
         'License :: OSI Approved :: BSD License',
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.6',
@@ -29,9 +31,9 @@ setup(
         'Programming Language :: Python :: 3.6',
     ],
     install_requires=[
-        'redis',
+        'fakeredis>=0.10.1',
     ],
     extras_require={
-        "lua": ['lupa']
+        "lua": ['fakeredis[lua]']
     }
 )
